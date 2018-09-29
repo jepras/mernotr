@@ -64,10 +64,11 @@
     </ul>
   </nav>
   <header>
-      <h1>Login using...</h1>
+      <h1>Welcome to your profile, <%= user.username %></h1>
   </header>
   <main>
-      <a class="google-btn" href="/auth/google">Google+</a>
+    <img src="<%= user.thumbnail %>" />
+    <p>This is your profile thumbnail</p>
   </main>
 </body>
 <script src="bundle.js"></script>

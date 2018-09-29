@@ -4,7 +4,7 @@ var bodyParser = require("body-parser");
 var Expense = require("../../models/Expense");
 
 router.get("/", function(req, res) {
-  res.render("index");
+  res.render("index", { user: req.user });
 });
 
 router.route("/insert").post(function(req, res) {
