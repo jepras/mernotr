@@ -85,7 +85,7 @@ class Add extends React.Component {
   insertNewExpense(e) {
     axios
       .post(
-        "/insert",
+        "/app/insert",
         querystring.stringify({
           desc: e.state.description,
           amount: e.state.amount,

@@ -34802,6 +34802,8 @@ const Routes = () => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_bootstrap__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__tabs_yearTabsRouter__ = __webpack_require__(149);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__tabs_monthTabs__ = __webpack_require__(364);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__Nav_Navbar__ = __webpack_require__(366);
+
 
 
 
@@ -34846,7 +34848,7 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
     });
   }
   getData(ev, year, month) {
-    __WEBPACK_IMPORTED_MODULE_2_axios___default.a.get("/getAll?month=" + month + "&year=" + year).then(function (response) {
+    __WEBPACK_IMPORTED_MODULE_2_axios___default.a.get("/app/getAll?month=" + month + "&year=" + year).then(function (response) {
       ev.setState({ data: response.data });
       ev.setState({ selectedYear: parseInt(year) });
       ev.setState({ selectedMonth: month });
@@ -34856,6 +34858,7 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       "div",
       null,
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9__Nav_Navbar__["a" /* default */], null),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         __WEBPACK_IMPORTED_MODULE_6_react_bootstrap__["c" /* Tabs */],
         { activeKey: this.state.activeTab, onSelect: this.handleSelect },
@@ -35974,7 +35977,7 @@ class Add extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
     this.insertNewExpense(this);
   }
   insertNewExpense(e) {
-    __WEBPACK_IMPORTED_MODULE_3_axios___default.a.post("/insert", querystring.stringify({
+    __WEBPACK_IMPORTED_MODULE_3_axios___default.a.post("/app/insert", querystring.stringify({
       desc: e.state.description,
       amount: e.state.amount,
       month: e.state.month,
@@ -48308,6 +48311,73 @@ class MonthTabsRouter extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Comp
   }
 }
 /* harmony default export */ __webpack_exports__["a"] = (MonthTabsRouter);
+
+/***/ }),
+/* 366 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+
+/* import styles from "../../css/global.css"; */
+
+class Navbar extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
+
+    render() {
+
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "div",
+            null,
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "nav",
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    "ul",
+                    null,
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "li",
+                        null,
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "a",
+                            { href: "/auth/logout" },
+                            "Log out"
+                        )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "li",
+                        null,
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "a",
+                            { href: "/auth/login" },
+                            "Login"
+                        )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "li",
+                        null,
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "a",
+                            { href: "/app" },
+                            "Homepage"
+                        )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "li",
+                        null,
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "a",
+                            { href: "/profile" },
+                            "Profile"
+                        )
+                    )
+                )
+            )
+        );
+    }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = Navbar;
+
 
 /***/ })
 /******/ ]);

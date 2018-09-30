@@ -7,6 +7,7 @@ var bodyParser = require("body-parser");
 const keys = require('../config/keys');
 const authRoutes = require('./routes/auth-routes');
 const profileRoutes = require('./routes/profile-routes');
+const appRoutes = require('./routes/app-routes');
 const passportSetup = require('../config/passport-setup');
 const cookieSession = require('cookie-session');
 const passport = require('passport')
@@ -46,6 +47,7 @@ mongoose.connection.on("error", function() {
 // set up routes
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
+app.use('/app', appRoutes);
 
 app.use("/", router);
 

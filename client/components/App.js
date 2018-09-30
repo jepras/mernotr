@@ -7,6 +7,7 @@ import Delete from "./Delete";
 import { Tab, Tabs } from "react-bootstrap";
 import YearTabsRouter from "./tabs/yearTabsRouter";
 import MonthTabs from "./tabs/monthTabs";
+import Navbar from "./Nav/Navbar"
 
 export default class App extends React.Component {
   constructor() {
@@ -50,7 +51,7 @@ export default class App extends React.Component {
   }
   getData(ev, year, month) {
     axios
-      .get("/getAll?month=" + month + "&year=" + year)
+      .get("/app/getAll?month=" + month + "&year=" + year)
       .then(function(response) {
         ev.setState({ data: response.data });
         ev.setState({ selectedYear: parseInt(year) });
@@ -60,6 +61,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
+        <Navbar />
         <Tabs activeKey={this.state.activeTab} onSelect={this.handleSelect}>
           <Tab eventKey={2016} title={<YearTabsRouter year="2016" />}>
             <MonthTabs
